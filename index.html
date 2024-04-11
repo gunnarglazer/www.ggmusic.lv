@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunnar Glazer Music</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: url('00.jpg') center/cover no-repeat;
+            color: #fff;
+        }
+
+        p.small {
+            line-height: 0.9;
+        }
+
+        p.big {
+            line-height: 2.5; /* Adjusted for better readability */
+        }
+
+        header {
+            background: white;
+            color: #000;
+            padding: 10px; /* Corrected padding */
+            text-align: center;
+        }
+
+        header img { /* Logo image styles, fixed size */
+            width: 300px; /* Fixed width */
+            height: auto; /* Height auto for aspect ratio */
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column; /* Stack links vertically on mobile */
+            justify-content: center;
+            align-items: center; /* Center links for smaller screens */
+            background-color: rgba(85, 85, 85, 0.8);
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 15px;
+            margin: 5px 0; /* Add space between links on smaller screens */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: black;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 80px; /* Reduced padding for all screens, adjust if necessary */
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+        .about, .music, .contacts, .gallery, .video-gallery {
+            display: none;
+        }
+
+        .gallery img, .video-gallery iframe {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .about, .music, .contacts, .gallery, .video-gallery, .calendar {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="01.jpg" alt="Gunnar Glazer Music Logo">
+    </header>
+
+    <nav>
+        <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
+        <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
+        <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
+        <!-- Hidden for simplicity
+        <a href="javascript:void(0);" onclick="showSection('gallery')">Galerija</a>
+        <a href="javascript:void(0);" onclick="showSection('video-gallery')">Video</a>
+        -->
+    </nav>
+
+    <div class="container">
+        <div class="about">
+            <h2>Pakalpojumi</h2>
+            <p class="big">
+                Spēlēju akustisko ģitāru un dziedu.<br>
+                Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus.<br>
+				Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika. <br>
+				<img src="gut.jpg" alt="gunar" width="460" height="345">
+				Atkarībā no plānotā pasākuma rakstura un klientu vēlmēm, varam uzstāties kā duets vai grupa.
+            </p>
+        </div>
+
+        <div class="music">
+            <h2>Mūzika</h2>
+            <p>Latviešu popurijs.</p>
+			<img src="stage.jpg" alt="Flow" width="460" height="345">
+            <audio controls>
+                <source src="demo.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+
+        <div class="contacts">
+            <h2>Kontakti</h2>
+            <p class="big">
+                Tel: +371 29453061<br>
+                E-mail: guntars@ggmusic.lv<br>
+            </p>
+        </div>
+
+        <!-- Simplified for mobile responsiveness
+        <div class="gallery">
+            ...
+        </div>
+
+        <div class="video-gallery">
+            ...
+        </div>
+        -->
+    </div>
+
+    <footer>
+        &copy; <script>document.write(new Date().getFullYear());</script> GGMusic @ All rights reserved.
+    </footer>
+
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
+            document.querySelector('.' + section).style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

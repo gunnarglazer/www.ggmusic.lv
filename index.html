@@ -115,20 +115,28 @@
             width: 100%;
         }
 
-        @media screen and (min-width: 768px) {
-            nav {
-                flex-direction: row;
-                justify-content: space-around;
-            }
+        .carousel {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-            .about,
-            .music,
-            .contacts,
-            .gallery,
-            .video-gallery,
-            .calendar {
-                display: block;
-            }
+        .carousel-content {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            max-width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -148,6 +156,21 @@
 
     <div class="container">
         <div class="home">
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="carousel-content">
+                    <div class="carousel-slide">
+                        <img src="123.jpg" alt="Slide 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="1234.jpg" alt="Slide 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="12345.jpg" alt="Slide 3">
+                    </div>
+                </div>
+            </div>
+
             <h2>Dzīvā mūzika saviesīgos pasākumos</h2>
             <p>Spēlēju akustisko ģitāru un dziedu. Izpildu populārus skaņdarbus un pasaules hītus.</p>
         </div>
@@ -187,22 +210,36 @@
                 E-mail: glazunovs.guntars@gmail.com<br>
             </p>
         </div>
-<!--
+
         <div class="gallery">
             <h2>Valmiera</h2>
             <img src="valmiera.JPG" alt="Valmiera" width="100" height="133">
         </div>
--->
+
         <div class="video-gallery">
             <!-- Content for the video-gallery section -->
         </div>
     </div>
 
-    <!-- <footer>
+    <footer>
         &copy; <script>document.write(new Date().getFullYear());</script> GGMusic @ All rights reserved.
-    </footer> -->
+    </footer>
 
     <script>
+        // Carousel script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlides() {
+            slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
+            slideIndex = (slideIndex + 1) % totalSlides;
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        }
+
+        showSlides();
+
+        // Section display script
         function showSection(section) {
             document.querySelectorAll('.home, .about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
             document.querySelector('.' + section).style.display = 'block';

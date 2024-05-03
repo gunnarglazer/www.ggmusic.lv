@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gunnar Glazer Music</title>
-
-</head>
-    <style>	   
+    <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -22,26 +20,29 @@
         }
 
         p.big {
-            line-height: 2.5; /* Adjusted for better readability */
+            line-height: 2.5;
+            /* Adjusted for better readability */
         }
 
         header {
             background: white;
             color: #151714;
-            padding: 10px; /* Corrected padding */
+            padding: 10px;
+            /* Corrected padding */
             text-align: center;
         }
 
-        header img { /* Logo image styles, fixed size */
-            width: 300px; /* Fixed width */
-            height: auto; /* Height auto for aspect ratio */
+        header img {
+            /* Logo image styles, fixed size */
+            width: 300px;
+            /* Fixed width */
+            height: auto;
+            /* Height auto for aspect ratio */
         }
 
         nav {
             display: flex;
-            flex-direction: column; /* Stack links vertically on mobile */
             justify-content: center;
-            align-items: center; /* Center links for smaller screens */
             background-color: rgba(85, 85, 85, 0.8);
             padding: 10px;
         }
@@ -51,7 +52,8 @@
             color: #fff;
             font-weight: bold;
             padding: 8px 15px;
-            margin: 5px 0; /* Add space between links on smaller screens */
+            margin: 5px 10px;
+            /* Add space between links on smaller screens */
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -59,34 +61,45 @@
         nav a:hover {
             background-color: black;
         }
-}
-.container {
-    max-width: 960px;
 
-margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
-  margin-left: 80px;
-    padding: 100px; /* Reduced padding for all screens, adjust if necessary */
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-}
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 50px;
+            /* Reduced padding for all screens, adjust if necessary */
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            text-align: center;
+        }
 
-/* Media Query for screens smaller than 768px (standard tablets and below) */
-@media (max-width: 767px) {
-    .container {
-        max-width: 100%;
-        padding: 100px; /* Adjusted padding for smaller screens */
-        margin: 10px;
-    }
-}
+        /* Media Query for screens smaller than 768px (standard tablets and below) */
+        @media (max-width: 767px) {
+            .container {
+                max-width: 100%;
+                padding: 30px;
+                /* Adjusted padding for smaller screens */
+            }
 
-        .about, .music, .contacts, .gallery, .video-gallery {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+        .about,
+        .music,
+        .contacts,
+        .gallery,
+        .video-gallery {
             display: none;
         }
 
-        .gallery img, .video-gallery iframe {
-            width: 50%;
+        .gallery img,
+        .video-gallery iframe {
+            width: 100%;
             height: auto;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -108,10 +121,15 @@ margin-top: 100px;
                 justify-content: space-around;
             }
 
-            .about, .music, .contacts, .gallery, .video-gallery, .calendar {
+            .about,
+            .music,
+            .contacts,
+            .gallery,
+            .video-gallery,
+            .calendar {
                 display: block;
             }
-        
+        }
     </style>
 </head>
 
@@ -122,41 +140,42 @@ margin-top: 100px;
     </header>
 
     <nav>
+        <a href="javascript:void(0);" onclick="showSection('home')">Galvenā</a>
         <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
         <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
         <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
-	    <!--
-        <a href="javascript:void(0);" onclick="showSection('gallery')">Galerija</a>
-	    -->
-	    <!--
-        <a href="javascript:void(0);" onclick="showSection('video-gallery')">Video</a>
-        -->
     </nav>
 
     <div class="container">
+        <div class="home">
+            <h2>Dzīvā mūzika saviesīgos pasākumos</h2>
+            <p>Spēlēju akustisko ģitāru un dziedu. Izpildu populārus skaņdarbus un pasaules hītus.</p>
+        </div>
+
         <div class="about">
             <h2>Pakalpojumi</h2>
             <p class="big">
                 Spēlēju akustisko ģitāru un dziedu.<br>
                 Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus.<br>
-				Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika. <br>
-				<img src="gut.jpg" alt="gunar" width="460" height="345"><br>
-				Atkarībā no plānotā pasākuma rakstura un klientu vēlmēm, varam uzstāties kā duets vai grupa.
-		    Ir sava skaņas tehnika nelielu telpu apskaņošanai. <br>
-		    Izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj spēlēt brīvā dabā līdz pat 3 stundām.<br>
-		    
-		    
+                Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika.
+                <br>
+                <img src="gut.jpg" alt="gunar" width="460" height="345"><br>
+                Atkarībā no plānotā pasākuma rakstura un klientu vēlmēm, varam uzstāties kā duets vai grupa.
+                Ir sava skaņas tehnika nelielu telpu apskaņošanai. <br>
+                Izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj spēlēt brīvā dabā līdz pat 3 stundām.<br>
+
+
             </p>
         </div>
 
         <div class="music">
             <h2>Mūzika</h2>
             <p>Dažādi.</p>
-			<img src="stage.jpg" alt="Flow" width="460" height="345"><br>
+            <img src="stage.jpg" alt="Flow" width="460" height="345"><br>
             <audio controls>
-		    
+
                 <source src="test.mp3" type="audio/mp3"><br>
-		    <p> Burtnieku zandarts</p>
+                <p> Burtnieku zandarts</p>
                 Your browser does not support the audio tag.
             </audio>
         </div>
@@ -169,27 +188,23 @@ margin-top: 100px;
             </p>
         </div>
 
-        <!--
         <div class="gallery">
-		<h2>Valmiera</h2>
-<img src="valmiera.JPG" alt="Valmiera" width="100" height="133">
-            
+            <h2>Valmiera</h2>
+            <img src="valmiera.JPG" alt="Valmiera" width="100" height="133">
         </div>
 
         <div class="video-gallery">
-            ...
+            <!-- Content for the video-gallery section -->
         </div>
-        -->
     </div>
 
-   <!-- <footer>
+    <!-- <footer>
         &copy; <script>document.write(new Date().getFullYear());</script> GGMusic @ All rights reserved.
-    </footer>
-	-->
+    </footer> -->
 
     <script>
         function showSection(section) {
-            document.querySelectorAll('.about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.home, .about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
             document.querySelector('.' + section).style.display = 'block';
         }
     </script>

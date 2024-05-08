@@ -138,11 +138,25 @@
             height: 400px;
             object-fit: cover;
         }
+          #cookieConsent {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid #d3d3d3;
+        display: none; /* Hidden by default */
+    }
     </style>
 </head>
 
 <body>
-
+<div id="cookieConsent">
+    This website uses cookies to ensure you get the best experience on our website.
+    <button onclick="hideCookieBanner()">Got it!</button>
+</div>
     <header>
         <img src="01.jpg" alt="Gunnar Glazer Music Logo">
     </header>
@@ -254,7 +268,22 @@
             document.querySelector('.' + section).style.display = 'block';
         }
     </script>
+<script>
+    function checkCookieConsent() {
+        // Check if the cookie consent has been set
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookieConsent').style.display = 'block';
+        }
+    }
 
+    function hideCookieBanner() {
+        // Hide the cookie banner and store the consent
+        document.getElementById('cookieConsent').style.display = 'none';
+        localStorage.setItem('cookieConsent', 'true');
+    }
+
+    window.onload = checkCookieConsent;
+</script>
 </body>
 
 </html>

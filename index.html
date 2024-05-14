@@ -1,111 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Dzīvā mūzika svinībās Gunnar Glazer Music</title>
+    <title>Dzīvā mūzika svinībās | Gunnar Glazer Music</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             background: url('00.jpg') center/cover no-repeat;
-            color: #151714;
+            color: #333;
         }
-
-        p.small {
-            line-height: 0.9;
-        }
-
-        p.big {
-            line-height: 3;
-            /* Adjusted for better readability */
-        }
-
         header {
-            background: white;
-            color: #151714;
-            padding: 10px;
-            /* Corrected padding */
+            background: #ffffff;
+            padding: 20px;
             text-align: center;
         }
-
         header img {
-            /* Logo image styles, fixed size */
             width: 200px;
-            /* Fixed width */
             height: auto;
-            /* Height auto for aspect ratio */
         }
-
         nav {
             display: flex;
             justify-content: center;
-            background-color: rgba(85, 85, 85, 0.8);
+            background-color: #555555;
             padding: 10px;
         }
-
         nav a {
             text-decoration: none;
-            color: #fff;
+            color: #ffffff;
             font-weight: bold;
             padding: 8px 15px;
-            margin: 5px 10px;
-            /* Add space between links on smaller screens */
+            margin: 0 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
         nav a:hover {
-            background-color: rgb(39, 37, 37);
+            background-color: #272525;
         }
-
         .container {
             max-width: 960px;
-            margin: 0 auto;
-            padding: 50px;
-            /* Reduced padding for all screens, adjust if necessary */
+            margin: 20px auto;
+            padding: 20px;
             background-color: rgba(133, 130, 130, 0.573);
             border-radius: 10px;
             text-align: center;
         }
-
-        /* Media Query for screens smaller than 768px (standard tablets and below) */
         @media (max-width: 767px) {
             .container {
-                max-width: 100%;
-                padding: 30px;
-                /* Adjusted padding for smaller screens */
+                padding: 10px;
             }
-
             nav {
                 flex-direction: column;
             }
-
             nav a {
                 margin: 5px 0;
             }
         }
-
-        .about,
-        .music,
-        .contacts,
-        .gallery,
-        .video-gallery {
-            display: none;
-        }
-
-        .gallery img,
-        .video-gallery iframe {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-
         footer {
             background-color: #000;
             color: #fff;
@@ -115,185 +68,71 @@
             bottom: 0;
             width: 100%;
         }
-
-        .carousel {
-            max-width: 100%;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .carousel-content {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%;
-            max-width: 100%;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide img {
+        #cookieConsent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #d3d3d3;
+            display: none;
         }
-          #cookieConsent {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #f4f4f4;
-        padding: 10px;
-        text-align: center;
-        border-top: 1px solid #d3d3d3;
-        display: none; /* Hidden by default */
-    }
     </style>
 </head>
-
 <body>
 <div id="cookieConsent">
-    Informējam, ka izmantojam sīkdatnes!
-    Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "ok"
-
+    Informējam, ka izmantojam sīkdatnes! Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "OK".
     <button onclick="hideCookieBanner()">Got it!</button>
 </div>
-    <header>
-        <img src="01.jpg" alt="Gunnar Glazer Music Logo">
-    </header>
-
-    <nav>
-        <a href="javascript:void(0);" onclick="showSection('home')">Galvenā</a>
-        <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
-        <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
-        <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
-    </nav>
-
-    <div class="container">
-        <div class="home">
-            <!-- Carousel -->
-            <div class="carousel">
-                <div class="carousel-content">
-                    <div class="carousel-slide">
-                        <img src="123.jpg" alt="Slide 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="1234.jpg" alt="Slide 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="12345.jpg" alt="Slide 3">
-                    </div>
+<header>
+    <img src="01.jpg" alt="Gunnar Glazer Music Logo">
+</header>
+<nav>
+    <a href="javascript:void(0);" onclick="showSection('home')">Galvenā</a>
+    <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
+    <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
+    <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
+</nav>
+<div class="container">
+    <div class="home">
+        <div class="carousel">
+            <div class="carousel-content">
+                <div class="carousel-slide">
+                    <img src="123.jpg" alt="Slide 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="1234.jpg" alt="Slide 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="12345.jpg" alt="Slide 3">
                 </div>
             </div>
-
-            <h1>Dzīvā mūzika saviesīgos pasākumos</h1>
-             <p class="big">
-            <p>Spēlēju akustisko ģitāru un dziedu. <br>
-                <br>
-                Papildināšu Jūsu svinības ar dzīvās mūzikas skaņām<br>
-                <br>
-                Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus.<br>
-                <br>
-                Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika.<br>
-            
-            </p>
         </div>
-
-        <div class="about">
-            <h2>Pakalpojumi</h2>
-            <p class="big">
-                Dzīvā mūzika svinīgos pasākumos<br>
-                 Dzīvā mūzika brīvā dabā<br>
-              Akustiskā programma vasaras dārziem un kafejnīcām <br>
-                Mūzika jubilejās un nelielās svinībās
-                <br>
-                
-                
-                <img src="bw.jpeg" alt="gunar" width="460" height="500"><br>
-                <br>
-                Ir sava skaņas tehnika nelielu telpu apskaņošanai. <br>
-                Izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj spēlēt brīvā dabā līdz pat 3 stundām.<br>
-                <br>
-                Cenas piedāvājums tiek sagatavots individuāli, ņemot vērā plānoto pasākumu.
-
-
-            </p>
-        </div>
-
-        <div class="music">
-            <h2>Mūzika</h2>
-            <p>Dažādi.</p>
-            loading...
-            <img src="stage.jpg" alt="Flow" width="460" height="345"><br>
-            <audio controls>
-
-                <source src="test.mp3" type="audio/mp3"><br>
-                <p> Burtnieku zandarts</p>
-                Your browser does not support the audio tag.
-            </audio>
-        </div>
-
-        <div class="contacts">
-            <h2>Kontakti</h2>
-            <p class="big">
-                Tel: +371 29453061<br>
-                E-mail: glazunovs.guntars@gmail.com<br>
-                 <img src="contacts.jpg" alt="Flow" width="400" height="200" ><br>
-            </p>
-        </div>
-
-        <div class="gallery">
-            <h2>Valmiera</h2>
-            <img src="valmiera.JPG" alt="Valmiera" width="100" height="133">
-        </div>
-
-        <div class="video-gallery">
-            <!-- Content for the video-gallery section -->
-        </div>
+        <h1>Dzīvā mūzika saviesīgos pasākumos</h1>
+        <p>
+            Spēlēju akustisko ģitāru un dziedu. <br>
+            Papildināšu Jūsu svinības ar dzīvās mūzikas skaņām. <br>
+            Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus. <br>
+            Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika.
+        </p>
     </div>
-
-    <footer>
-        &copy; <script>document.write(new Date().getFullYear());</script> GGMusic @ All rights reserved.
-    </footer>
-
-    <script>
-        // Carousel script
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        function showSlides() {
-            slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
-            slideIndex = (slideIndex + 1) % totalSlides;
-            setTimeout(showSlides, 5000); // Change slide every 5 seconds
-        }
-
-        showSlides();
-
-        // Section display script
-        function showSection(section) {
-            document.querySelectorAll('.home, .about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
-            document.querySelector('.' + section).style.display = 'block';
-        }
-    </script>
+</div>
+<footer>
+    &copy; <script>document.write(new Date().getFullYear());</script> GGMusic. All rights reserved.
+</footer>
 <script>
     function checkCookieConsent() {
-        // Check if the cookie consent has been set
         if (!localStorage.getItem('cookieConsent')) {
             document.getElementById('cookieConsent').style.display = 'block';
         }
     }
-
     function hideCookieBanner() {
-        // Hide the cookie banner and store the consent
         document.getElementById('cookieConsent').style.display = 'none';
         localStorage.setItem('cookieConsent', 'true');
     }
-
     window.onload = checkCookieConsent;
 </script>
 </body>
-
 </html>

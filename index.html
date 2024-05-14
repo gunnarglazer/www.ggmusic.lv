@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +80,28 @@
             border-top: 1px solid #d3d3d3;
             display: none;
         }
+        .carousel {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-content {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
+
 <body>
 <div id="cookieConsent">
     Informējam, ka izmantojam sīkdatnes! Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "OK".
@@ -133,6 +154,25 @@
         localStorage.setItem('cookieConsent', 'true');
     }
     window.onload = checkCookieConsent;
+
+    // Carousel script
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    function showSlides() {
+        slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
+        slideIndex = (slideIndex + 1) % totalSlides;
+    }
+
+    setInterval(showSlides, 3000); // Change slide every 3 seconds
+
+    // Section display script
+    function showSection(section) {
+        document.querySelectorAll('.home, .about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
+        document.querySelector('.' + section).style.display = 'block';
+    }
 </script>
 </body>
+
 </html>

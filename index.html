@@ -14,21 +14,25 @@
             background: url('00.jpg') center/cover no-repeat;
             color: #333;
         }
+
         header {
             background: #ffffff;
             padding: 20px;
             text-align: center;
         }
+
         header img {
             width: 200px;
             height: auto;
         }
+
         nav {
             display: flex;
             justify-content: center;
             background-color: #555555;
             padding: 10px;
         }
+
         nav a {
             text-decoration: none;
             color: #ffffff;
@@ -38,9 +42,11 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             background-color: #272525;
         }
+
         .container {
             max-width: 960px;
             margin: 20px auto;
@@ -49,17 +55,21 @@
             border-radius: 10px;
             text-align: center;
         }
+
         @media (max-width: 767px) {
             .container {
                 padding: 10px;
             }
+
             nav {
                 flex-direction: column;
             }
+
             nav a {
                 margin: 5px 0;
             }
         }
+
         footer {
             background-color: #000;
             color: #fff;
@@ -69,6 +79,7 @@
             bottom: 0;
             width: 100%;
         }
+
         #cookieConsent {
             position: fixed;
             bottom: 0;
@@ -80,20 +91,24 @@
             border-top: 1px solid #d3d3d3;
             display: none;
         }
+
         .carousel {
             width: 100%;
             height: 300px;
             overflow: hidden;
             position: relative;
         }
+
         .carousel-content {
             display: flex;
             transition: transform 0.5s ease;
         }
+
         .carousel-slide {
             flex: 0 0 100%;
             max-width: 100%;
         }
+
         .carousel-slide img {
             width: 100%;
             height: 100%;
@@ -103,87 +118,96 @@
 </head>
 
 <body>
-<div id="cookieConsent">
-    Informējam, ka izmantojam sīkdatnes! Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "OK".
-    <button onclick="hideCookieBanner()">Got it!</button>
-</div>
-<header>
-    <img src="01.jpg" alt="Gunnar Glazer Music Logo">
-</header>
-<nav>
-    <a href="javascript:void(0);" onclick="showSection('home')">Galvenā</a>
-    <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
-    <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
-    <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
-</nav>
-<div class="container">
-    <div class="home">
-        <div class="carousel">
-            <div class="carousel-content">
-                <div class="carousel-slide">
-                    <img src="123.jpg" alt="Slide 1">
-                </div>
-                <div class="carousel-slide">
-                    <img src="1234.jpg" alt="Slide 2">
-                </div>
-                <div class="carousel-slide">
-                    <img src="12345.jpg" alt="Slide 3">
+    <div id="cookieConsent">
+        Informējam, ka izmantojam sīkdatnes! Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "OK".
+        <button onclick="hideCookieBanner()">Got it!</button>
+    </div>
+    <header>
+        <img src="01.jpg" alt="Gunnar Glazer Music Logo">
+    </header>
+    <nav>
+        <a href="javascript:void(0);" onclick="showSection('home')">Galvenā</a>
+        <a href="javascript:void(0);" onclick="showSection('about')">Pakalpojumi</a>
+        <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
+        <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
+    </nav>
+    <div class="container">
+        <div class="home">
+            <div class="carousel">
+                <div class="carousel-content">
+                    <div class="carousel-slide">
+                        <img src="123.jpg" alt="Slide 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="1234.jpg" alt="Slide 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="12345.jpg" alt="Slide 3">
+                    </div>
                 </div>
             </div>
+            <h1>Dzīvā mūzika saviesīgos pasākumos</h1>
+            <p>
+                Spēlēju akustisko ģitāru un dziedu. <br>
+                Papildināšu Jūsu svinības ar dzīvās mūzikas skaņām. <br>
+                Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus. <br>
+                Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika.
+            </p>
         </div>
-        <h1>Dzīvā mūzika saviesīgos pasākumos</h1>
-        <p>
-            Spēlēju akustisko ģitāru un dziedu. <br>
-            Papildināšu Jūsu svinības ar dzīvās mūzikas skaņām. <br>
-            Izpildu populāru skaņdarbu kaverversijas un oriģinālskaņdarbus. <br>
-            Programmā populāru pasaules mēroga skaņdarbu kaverversijas, latviešu hiti un estrādes klasika.
-        </p>
-    </div>
-</div>
-    
-    <div class="about">
-       
-            </div>
+        <div class="about" style="display: none;">
+            <h1>About</h1>
+            <p>
+                This is the about section. Add your about content here.
+            </p>
         </div>
-        <h1>Dzīvā mūzika saviesīgos pasākumos</h1>
-        <p>
-            estrādes klasika.
-        </p>
+        <div class="music" style="display: none;">
+            <h1>Music</h1>
+            <p>
+                This is the music section. Add your music content here.
+            </p>
+        </div>
+        <div class="contacts" style="display: none;">
+            <h1>Contacts</h1>
+            <p>
+                This is the contacts section. Add your contact information here.
+            </p>
+        </div>
     </div>
-</div>
-<footer>
-    &copy; <script>document.write(new Date().getFullYear());</script> GGMusic. All rights reserved.
-</footer>
-<script>
-    function checkCookieConsent() {
-        if (!localStorage.getItem('cookieConsent')) {
-            document.getElementById('cookieConsent').style.display = 'block';
+    <footer>
+        &copy; <script>document.write(new Date().getFullYear());</script> GGMusic. All rights reserved.
+    </footer>
+    <script>
+        function checkCookieConsent() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }
         }
-    }
-    function hideCookieBanner() {
-        document.getElementById('cookieConsent').style.display = 'none';
-        localStorage.setItem('cookieConsent', 'true');
-    }
-    window.onload = checkCookieConsent;
 
-    // Carousel script
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
+        function hideCookieBanner() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'true');
+        }
 
-    function showSlides() {
-        slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
-        slideIndex = (slideIndex + 1) % totalSlides;
-    }
+        window.onload = checkCookieConsent;
 
-    setInterval(showSlides, 3000); // Change slide every 3 seconds
+        // Carousel script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
 
-    // Section display script
-    function showSection(section) {
-        document.querySelectorAll('.home, .about, .music, .contacts, .gallery, .video-gallery, .calendar').forEach(el => el.style.display = 'none');
-        document.querySelector('.' + section).style.display = 'block';
-    }
-</script>
+        function showSlides() {
+            slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
+            slideIndex = (slideIndex + 1) % totalSlides;
+        }
+
+        setInterval(showSlides, 3000); // Change slide every 3 seconds
+
+        // Section display script
+        function showSection(section) {
+            document.querySelectorAll('.home, .about, .music, .contacts').forEach(el => el.style.display = 'none');
+            document.querySelector('.' + section).style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>

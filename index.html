@@ -1,475 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dzīvā mūzika svinībās | Gunnar Glazer Music</title>
+    <title>Solo Musician - Your Name Here</title>
     <style>
-        body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
-    
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #333;
-}
-	    body {
-    /* ... other properties ... */
-    color: #ffffff;
-}
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for transparency */
-    z-index: -1;
-}
-        header {
-            background: #ffffff;
-            padding: 20px;
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
             text-align: center;
         }
-p.small {
-  line-height: 1.5;
-}
-
-p.big {
-  line-height: 2.5;
-}
-        header img {
-            width: 100px;
-            height: auto;
-        }
-
-        nav {
+        .bg {
+            background-image: url('gut.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            background-color: #555555;
-            padding: 10px;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            background-blend-mode: overlay;
+            transition: all 0.5s ease;
         }
-
-        nav a {
+        .bg:hover {
+            background-size: 110% auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 1em auto;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff0000;
+            color: white;
             text-decoration: none;
-            color: #ffffff;
-            font-weight: bold;
-            padding: 8px 15px;
-            margin: 0 10px;
+            font-size: 1.2em;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
-        nav a:hover {
-            background-color: #272525;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: ligh-gray(133, 130, 130, 0.573);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        @media (max-width: 767px) {
-            .container {
-                padding: 10px;
-            }
-
-            nav {
-                flex-direction: column;
-            }
-
-            nav a {
-                margin: 5px 0;
-            }
-        }
-
-        footer {
-            background-color: #E5E8E8;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #cookieConsent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f4f4f4;
-            padding: 10px;
-            text-align: center;
-            border-top: 1px solid #d3d3d3;
-            display: none;
-        }
-
-        .carousel {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-content {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .hero{
-            background-image:
-                url('bw.jpg');
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            
-        }
-        html,
-body,
-.view {
-  height: 10%;
-}
-
-#mobile-box {
-  width: 360px;
-}
-
-.card {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-
-.card .view {
-  -webkit-border-top-left-radius: 10px;
-  border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.card h5 a {
-  color: #0d47a1;
-}
-
-.card h5 a:hover {
-  color: #072f6b;
-}
-
-#pButton {
-  float: left;
-}
-
-#timeline {
-  width: 90%;
-  height: 2px;
-  margin-top: 20px;
-  margin-left: 10px;
-  float: left;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-#pButton {
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-#playhead {
-  width: 8px;
-  height: 8px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  margin-top: -3px;
-  background: black;
-  cursor: pointer;
-}
-        
-/* Container to center the buttons */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Adjust the space between buttons */
-            margin-top: 30px; /* Add some space above the buttons */
-        }
-
-        /* Style for the dropdown */
-        .dropdown {
-            position: relative;
-        }
-
-        /* Style for the dropdown button */
-        .dropdown-button {
-            background-color: light-gray;
-            color: black;
-            padding: 10px 20px; /* Adjust the padding */
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Style for the dropdown content */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* Style for the dropdown links */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Style for the dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Show the dropdown content when hovering over the dropdown button */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        .cta-button:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
-
 <body>
-    <div id="cookieConsent">
-        Informējam, ka izmantojam sīkdatnes! Ja piekrītat visām sīkdatnēm, lūdzu, nospiediet "OK".
-        <button onclick="hideCookieBanner()">Got it!</button>
-    </div>
-    <header>
-        <img src="01.jpg" alt="Gunnar Glazer Music Logo">
-    </header>
-    <nav>
-        <a href="javascript:void(0);" onclick="showSection('home')">Gunnar Glazer </a>
-        <a href="javascript:void(0);" onclick="showSection('about')">Privāti pasākumi</a>
-        <a href="javascript:void(0);" onclick="showSection('music')">Mūzika</a>
-        <a href="javascript:void(0);" onclick="showSection('contacts')">Kontakti</a>
-    </nav>
-    <div class="container">
-        <div class="home">
-          <div class="carousel">
-                <div class="carousel-content">
-                    <div class="carousel-slide">
-                        <img src="123.jpg" alt="Slide 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="guitar.jpg" alt="Slide 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="12345.jpg" alt="Slide 3">
-                    </div>
-                </div>
-            </div>
-            <h2>Uzstājos kā solo mākslinieks – spēlēju akustisko ģitāru un dziedu.</h2>
-
-            <p class="big">
-
-Nodrošinu dzīvo mūziku nelielos pasākumos un svinībās. <br>
- 
-Repertuārā populāri latviešu skaņdarbi no estrādes klasikas līdz mūsdienām, šlāgeris un pasaules hītu izlase.<br>
-  
-Izmantoju skaņas sistēmu, kas ļauj apskaņot neliela izmēra telpas. <br>
-
-Pasākumiem brīvā dabā, izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj uzstāties līdz pat 3 stundām.<br>
-
-<br>
-<br>
-
-            </p>
-        </div>
-
-        
-    <div class="about" style="display: none;">
-    <h2>Uzstājos dažāda veida privātos pasākumos.</h2>
-	    <p> Repertuārs</p>
-   <div style="position: relative; text-align: center;">
-       <!-- <img src="bw.jpeg" alt="glazer" width="240" height="300" style="display: block; margin: 0 auto;"> */
-         <p class="big";style="text-align: center; color: 0E0F0D;  padding: 10px;"> -->
-
-<div class="button-container" style="display: flex; flex-direction: column; max-width: 300px; margin: auto;">
-    <label for="pop-list" style="margin-top: 10px;">Pops:</label>
-    <select name="pop-songs" id="pop-list" style="width: 100%; padding: 10px; margin-bottom: 15px;">
-        <option value="pop1">Have you ever seen the rain</option>
-        <option value="pop2">With or without you</option>
-        <option value="pop3">Yellow</option>
-        <option value="pop4">Dancing in the Moonlight</option>
-        <option value="pop5">Stand by me</option>
-        <option value="pop6">Proud mary</option>
-        <option value="pop7">Wicked game</option>
-        <option value="pop8">Whats up</option>
-    </select>
-
-    <br>
-
-    <label for="rock-list" style="margin-top: 10px;">Roks:</label>
-    <select name="rock-songs" id="rock-list" style="width: 100%; padding: 10px; margin-bottom: 15px;">
-        <option value="rock1">Wonderwall</option>
-        <option value="rock2">Wanted dead or alive</option>
-        <option value="rock3">One</option>
-        <option value="rock4">Every breathe you take</option>
-        <option value="rock5">Zombie</option>
-        <option value="rock6">Elevation</option>
-        <option value="rock7">This is the life</option>
-        <option value="rock8">Superstition</option>
-        <option value="rock9">Road to Hell</option>
-    </select>
-
-    <br>
-
-    <label for="country-list" style="margin-top: 10px;">Country:</label>
-    <select name="country-songs" id="country-list" style="width: 100%; padding: 10px; margin-bottom: 15px;">
-        <option value="country1">Sweet home Alabama</option>
-        <option value="country2">Country roads</option>
-        <option value="country3">Eachy breachy heart</option>
-        <option value="country4">Ring of Fire</option>
-        <option value="country5">Take me home, country roads</option>
-        <option value="country6">Folsom Prison blues</option>
-        <option value="country7">Tennessee Whiskey</option>
-        <option value="country8">Drink in my hand</option>
-        <option value="country9">Bad Moon rising</option>
-    </select>
-</div>	
-		
-		<div>
-
-    
-    </div>
-
-    <!-- Add more dropdowns for additional genres as needed -->
-            
-          
-    </div>
-	 <p class="big";style="text-align: center; color: 0E0F0D;  padding: 10px;">
-            
-            Uzstāšos Jūsu pasākumā un parūpēšos par muzikālo noformējumu.
-
-Dziedu un spēlēju ģitāru. <br>
-
-Uzstāšos dzimšanas dienas svinībās, jubilejās, dārza svētkos un dažādos īpašos svinīgos mirkļos.<br>
-
-Parūpēšos par to, lai lielisks svinīgā notikuma papidinājums ir skaistas dziesmas! <br>
-
-Repretuārts ir plašs gan latviešu, gan ārzemju mūzikā. <br>
-Latviešu valodā savā manierē izpildu kompozīcijas no R. Paula, Z. Liepiņa, Im. Kalniņa, Prāta Vētras, Līviem, Labvelīgā Tipa, Dakotas, Credo, Bet Bet, Jauna Mēness, u.c. <br>
-		 Kā arī ārzemju dziesmas no The Beatles, CCR, U2, Sting, Elvis Presley, Joe Cocker.
+    <div class="bg">
+        <h1>Gunnar Glazer Music</h1>
+        <p>Solo Artist | Accoustic </p>
+        <p>Uzstājos kā solo mākslinieks – spēlēju akustisko ģitāru un dziedu.
+Nodrošinu dzīvo mūziku nelielos pasākumos un svinībās.
+Repertuārā populāri latviešu skaņdarbi no estrādes klasikas līdz mūsdienām, šlāgeris un pasaules hītu izlase.
+Izmantoju skaņas sistēmu, kas ļauj apskaņot neliela izmēra telpas.
+Pasākumiem brīvā dabā, izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj uzstāties līdz pat 3 stundām.
 </p>
-
+        <a href="#" class="cta-button">Sazinies!</a>
     </div>
-</div>
-
-
-        <div class="music" style="display: none;">
-            <h1>Mūzika</h1>
-        <p>  Piedāvāju ieskatu piedāvātajā mūzikas dažādībā.<br>
-                </p>
-            <p> Dziesmas latviešu valodā</p>
-    <audio controls>
-  <source src="#" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-            
-             <audio controls>
-  <source src="#" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-            <p> Populāri skaņdarbi</p>
-             <audio controls>
-  <source src="#" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-             <audio controls>
-  <source src="#" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<p>
-    Oriģinālskaņdarbi.
-<iframe allowtransparency="true" 
-    scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fguntars-455898566&color=black_white&size=32" style="width: 32px; 
-    height: 32px;"></iframe>
-</p>
-            
-        </div>
-        
-        <div class="contacts" style="display: none;">
-            <h1>Kontakti</h1>
-          <p class="big">
-               Pasākumus plānojam savlaicīgi!
-            <br>
-                Sīkākai informācijai, lūgums rakstīt vai zvanīt!
-                <br>
-                Tel: 29453061 <br>
-                e-pasts:glazunovs.guntars@gmail.com<br>
-
-                <img src="untitled.png" alt="contact" style="width:290px;height:140px;display:block;margin:auto;">
-
-            </p>
-        </div>
-    </div>
-    <footer>
-        &copy; <script>document.write(new Date().getFullYear());</script> GunnarGlazerMusic. All rights reserved.
-    </footer>
-    <script>
-        function checkCookieConsent() {
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookieConsent').style.display = 'block';
-            }
-        }
-
-        function hideCookieBanner() {
-            document.getElementById('cookieConsent').style.display = 'none';
-            localStorage.setItem('cookieConsent', 'true');
-        }
-
-        window.onload = checkCookieConsent;
-
-        // Carousel script
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        function showSlides() {
-            slides.forEach(slide => slide.style.transform = `translateX(-${slideIndex * 100}%)`);
-            slideIndex = (slideIndex + 1) % totalSlides;
-        }
-
-        setInterval(showSlides, 3000); // Change slide every 3 seconds
-
-        // Section display script
-        function showSection(section) {
-            document.querySelectorAll('.home, .about, .music, .contacts').forEach(el => el.style.display = 'none');
-            document.querySelector('.' + section).style.display = 'block';
-        }
-    </script>
 </body>
-
 </html>

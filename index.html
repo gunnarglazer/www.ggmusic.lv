@@ -453,8 +453,8 @@
       <p> Vienmēr cenšos pielāgot programmu katram pasākumam. Piedāvāju aplūkot nelielu daļu no repertuāra.</p>
       
       
-   <div class="dropdown mt-4">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="dropdown mt-4">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: black; border-color: black;">
     Apskatīt pēc žanra
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -516,11 +516,11 @@
     </ul>
   </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const dropdownItems = document.querySelectorAll('.dropdown-item');
   const genreLists = document.querySelectorAll('.genre-list');
+  
   dropdownItems.forEach(item => {
     item.addEventListener('click', function(e) {
       e.preventDefault();
@@ -537,6 +537,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+
+      
 
 <!-- Audio Section -->
 <style>

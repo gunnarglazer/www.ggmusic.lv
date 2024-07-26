@@ -33,6 +33,10 @@
       }
       
 
+.dropdown-menu.show {
+  display: block;
+}
+
       .b-example-divider {
         width: 100%;
         height: 3rem;
@@ -606,63 +610,109 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
 
-
 <style>
-        .gallery {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .gallery-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            overflow: hidden;
-        }
-        .gallery img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .gallery img.active {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="gallery">
-        <div class="gallery-container">
-            <img src="1.jpeg" alt="Image 1" class="active">
-            <img src="2.jpeg" alt="Image 2">
-            <img src="3.jpeg" alt="Image 3">
-            <img src="4.jpeg" alt="Image 4">
-           <img src="5.jpeg" alt="Image 5">
-           <img src="6.jpeg" alt="Image 6">
-           <img src="7.jpeg" alt="Image 7">
-           <img src="valmiera.JPG" alt="Image 8">
+    .gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .gallery-container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+    }
+    .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .gallery img.active {
+        opacity: 1;
+    }
+    .gallery-controls {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+    .gallery-controls button {
+        background: rgba(255, 255, 255, 0.7);
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="gallery">
+    <div class="gallery-container">
+        <img src="1.jpeg" alt="Image 1" class="active">
+        <img src="2.jpeg" alt="Image 2">
+        <img src="3.jpeg" alt="Image 3">
+        <img src="4.jpeg" alt="Image 4">
+        <img src="5.jpeg" alt="Image 5">
+        <img src="6.jpeg" alt="Image 6">
+        <img src="7.jpeg" alt="Image 7">
+        <img src="valmiera.JPG" alt="Image 8">
+        <div class="gallery-controls">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
         </div>
     </div>
+</div>
 
-    <script>
-        const images = document.querySelectorAll('.gallery img');
-        let currentIndex = 0;
+<script>
+    const images = document.querySelectorAll('.gallery img');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    let intervalId;
 
-        function rotateImage() {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
-        }
-
-        // Initial call to show the first image
+    function showImage(index) {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (index + images.length) % images.length;
         images[currentIndex].classList.add('active');
+    }
 
-        // Set interval to rotate images every 3 seconds
-        setInterval(rotateImage, 3000);
-    </script>
+    function nextImage() {
+        showImage(currentIndex + 1);
+    }
+
+    function prevImage() {
+        showImage(currentIndex - 1);
+    }
+
+    function startAutoRotation() {
+        intervalId = setInterval(nextImage, 3000);
+    }
+
+    function stopAutoRotation() {
+        clearInterval(intervalId);
+    }
+
+    // Event listeners for manual navigation
+    nextBtn.addEventListener('click', () => {
+        stopAutoRotation();
+        nextImage();
+        startAutoRotation();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoRotation();
+        prevImage();
+        startAutoRotation();
+    });
+
+    // Initial call to show the first image and start auto-rotation
+    showImage(currentIndex);
+    startAutoRotation();
+</script>
   <!-- FOOTER -->
   <footer class="container">
     <p class="float-end"><a href="#">Uz Sākumu</a></p>

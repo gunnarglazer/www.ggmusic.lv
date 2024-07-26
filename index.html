@@ -609,13 +609,14 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </div>
-
 <style>
     .gallery {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
     }
     .gallery-container {
         position: relative;
@@ -628,6 +629,8 @@ document.addEventListener('DOMContentLoaded', function() {
         height: 300px;
         object-fit: cover;
         position: absolute;
+        top: 0;
+        left: 0;
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
     }
@@ -637,9 +640,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .gallery-controls {
         position: absolute;
         bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
         display: flex;
+        justify-content: center;
         gap: 10px;
     }
     .gallery-controls button {
@@ -660,8 +664,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="6.jpeg" alt="Image 6">
         <img src="7.jpeg" alt="Image 7">
         <img src="valmiera.JPG" alt="Image 8">
-       
-     
+        <div class="gallery-controls">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
     </div>
 </div>
 
@@ -694,7 +700,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(intervalId);
     }
 
-    // Event listeners for manual navigation
     nextBtn.addEventListener('click', () => {
         stopAutoRotation();
         nextImage();
@@ -707,10 +712,13 @@ document.addEventListener('DOMContentLoaded', function() {
         startAutoRotation();
     });
 
-    // Initial call to show the first image and start auto-rotation
     showImage(currentIndex);
     startAutoRotation();
 </script>
+
+
+
+      
   <!-- FOOTER -->
   <footer class="container">
     <p class="float-end"><a href="#">Uz Sākumu</a></p>

@@ -255,7 +255,8 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-<section class="container my-5">
+
+<section class="container-fluid my-5 bg-section">
   <div class="row justify-content-center">
     <div class="col-lg-8">
       <div class="text-center mb-5">
@@ -263,6 +264,7 @@
         <h2 class="mb-4">Gunnar Glazer</h2>
       </div>
    
+      <div class="content-wrapper">
         <p class="lead mb-5">Spēlēju ģitāru un dziedu, piedāvājot plašu muzikālo programmu un savu skanējumu.</p>
         
         <h4 class="mb-3">Mans repertuārs</h4>
@@ -270,7 +272,6 @@
           Populāri skaņdarbi latviešu un angļu valodā.<br>
           Iemīļotas pašmāju dziesmas, kurām var dziedāt līdzi.<br>
           Populāri pasaules skaņdarbi un estrādes klasika fonam, svinībām un ne tikai!
-    
         </p>
         
         <h4 class="mb-3">Mana pieeja</h4>
@@ -280,14 +281,33 @@
           izpildot skaņdarbus arī "looping" tehnikā. <br>
           Izmantoju iepriekš uzlādētu skaņas sistēmu, kas ļauj uzstāties brīvā dabā.
         </p>
-        
-   
       </div>
     </div>
   </div>
+
+  <style>
+    .bg-section {
+      background-image: url('your-background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 50px 15px;
+    }
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    @media (max-width: 768px) {
+      .bg-section {
+        padding: 30px 15px;
+      }
+      .content-wrapper {
+        padding: 20px;
+      }
+    }
+  </style>
 </section>
-
-
 
   
     </div>

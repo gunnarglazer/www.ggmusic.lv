@@ -294,6 +294,9 @@
   </div>
 
 
+	
+<!--
+
 <section class="audio-section" style="
             margin-top: 20px;
             padding: 20px;
@@ -341,7 +344,67 @@
 </section>
 
 
+	-->
 
+    <title>Audio Section</title>
+    <style>
+        .audio-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(240, 240, 240, 0.8);
+            border-radius: 10px;
+        }
+        .audio-tracks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            display: none; /* Initially hide the audio tracks */
+        }
+        .audio-track {
+            flex: 1 1 calc(33.333% - 15px);
+            max-width: calc(33.333% - 15px);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<section class="audio-section">
+    <h3 class="mb-4">Jaunākie ieraksti</h3>
+    <button id="listenButton">Listen</button>
+    <div class="audio-tracks">
+        <div class="audio-track">
+            <audio controls style="width: 100%;">
+                <source src="path/to/your/audio1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="audio-track">
+            <audio controls style="width: 100%;">
+                <source src="path/to/your/audio2.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="audio-track">
+            <audio controls style="width: 100%;">
+                <source src="path/to/your/audio3.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('listenButton').addEventListener('click', function() {
+        const audioTracks = document.querySelector('.audio-tracks');
+        if (audioTracks.style.display === 'none' || audioTracks.style.display === '') {
+            audioTracks.style.display = 'flex';
+        } else {
+            audioTracks.style.display = 'none';
+        }
+    });
+</script>
 
 
 	

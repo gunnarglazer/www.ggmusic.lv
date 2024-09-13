@@ -292,7 +292,8 @@
   </button>
 </div>
 
- <title>Audio Tracks</title>
+
+    <title>Audio Tracks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         html, body, .view {
@@ -327,7 +328,9 @@
             gap: 15px;
             justify-content: center;
             overflow-x: auto; /* Allow horizontal scrolling if needed */
-            transition: max-height 0.3s ease-out;
+            max-height: 0; /* Hidden by default */
+            overflow: hidden; /* Hide content when collapsed */
+            transition: max-height 0.3s ease-out; /* Smooth transition for toggling */
         }
 
         .card {
@@ -452,7 +455,7 @@
 <!-- Content -->
 <div class="container d-flex justify-content-center my-4 mb-5">
 
-    <div id="mobile-box">
+    <div id="mobile-box" class="hidden">
 
         <!-- Card for Track 1 -->
         <div class="card">
@@ -557,9 +560,10 @@
         
         if (mobileBox.classList.contains('hidden')) {
             mobileBox.classList.remove('hidden');
+            mobileBox.style.maxHeight = mobileBox.scrollHeight + 'px'; // Expand to scroll height
             button.textContent = 'Noslēpt ierakstus!';
         } else {
-            mobileBox.classList.add('hidden');
+            mobileBox.style.maxHeight = '0'; // Collapse to 0 height
             button.textContent = 'Parādīt jaunākos ierakstus!';
         }
     });
@@ -600,6 +604,8 @@
 
 
 
+
+	
 	
 
 <section class="container-fluid my-5 bg-section">

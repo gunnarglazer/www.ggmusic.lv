@@ -292,67 +292,312 @@
   </button>
 </div>
 
-
-	
-    <title>Audio Section</title>
+ <title>Audio Tracks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .audio-section {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: rgba(240, 240, 240, 0.8);
-            border-radius: 10px;
+        html, body, .view {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-        .audio-tracks {
+
+        #toggle-button {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        #toggle-button button {
+            background-color: #0d47a1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #toggle-button button:hover {
+            background-color: #072f6b;
+        }
+
+        #mobile-box {
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping of items */
             gap: 15px;
             justify-content: center;
-            display: none; /* Initially hide the audio tracks */
+            overflow-x: auto; /* Allow horizontal scrolling if needed */
+            transition: max-height 0.3s ease-out;
         }
-        .audio-track {
-            flex: 1 1 calc(33.333% - 15px);
-            max-width: calc(33.333% - 15px);
+
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 300px; /* Fixed width for each card */
+            margin: 10px;
             box-sizing: border-box;
+            position: relative;
+        }
+
+        .bg-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 150px; /* Adjusted size for smaller images */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .bg-image:hover .card-img-top {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card h5 a {
+            color: #0d47a1;
+            text-decoration: none;
+        }
+
+        .card h5 a:hover {
+            color: #072f6b;
+        }
+
+        #audioplayer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #pButton {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #timeline {
+            width: 90%;
+            height: 2px;
+            margin-top: 20px;
+            margin-left: 10px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        #playhead {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: black;
+            cursor: pointer;
+            position: absolute;
+            top: -3px;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            #mobile-box {
+                flex-direction: column; /* Stack cards vertically on small screens */
+                align-items: center;
+            }
+
+            .card {
+                width: 100%; /* Full width for cards on mobile */
+            }
+
+            .card-img-top {
+                height: 100px; /* Smaller image size for mobile */
+            }
+        }
+
+        #mobile-box.hidden {
+            max-height: 0;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
 
-<section class="audio-section">
-    <h3 class="mb-4">Jaunākie ieraksti</h3>
-    <button id="listenButton">Klausīties</button>
-    <div class="audio-tracks">
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+<!-- Toggle Button -->
+<div id="toggle-button">
+    <button id="toggle-music">Show Music Tracks</button>
+</div>
+
+<!-- Content -->
+<div class="container d-flex justify-content-center my-4 mb-5">
+
+    <div id="mobile-box">
+
+        <!-- Card for Track 1 -->
+        <div class="card">
+            <div class="bg-image hover-overlay ripple-container">
+                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg" alt="Track image">
+                <div class="ripple"></div>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">Dj Flam</a></h5>
+                <p class="mb-0">Urban Bachata remix</p>
+                <audio id="music1" preload="true">
+                    <source src="path/to/your/audio1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div id="audioplayer">
+                    <i id="pButton1" class="fas fa-play"></i>
+                    <div id="timeline1">
+                        <div id="playhead1"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio2.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+
+        <!-- Card for Track 2 -->
+        <div class="card">
+            <div class="bg-image hover-overlay ripple-container">
+                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg" alt="Track image">
+                <div class="ripple"></div>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">Track Title 2</a></h5>
+                <p class="mb-0">Description for Track 2</p>
+                <audio id="music2" preload="true">
+                    <source src="path/to/your/audio2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div id="audioplayer">
+                    <i id="pButton2" class="fas fa-play"></i>
+                    <div id="timeline2">
+                        <div id="playhead2"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio3.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+
+        <!-- Card for Track 3 -->
+        <div class="card">
+            <div class="bg-image hover-overlay ripple-container">
+                <img class="card-img-top" src="https://mdbootstrap.com/wp-content/uploads/2019/02/flam.jpg" alt="Track image">
+                <div class="ripple"></div>
+                <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <h5 class="h5 font-weight-bold"><a href="#" target="_blank">Track Title 3</a></h5>
+                <p class="mb-0">Description for Track 3</p>
+                <audio id="music3" preload="true">
+                    <source src="path/to/your/audio3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div id="audioplayer">
+                    <i id="pButton3" class="fas fa-play"></i>
+                    <div id="timeline3">
+                        <div id="playhead3"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
-</section>
+</div>
+<!-- Content -->
 
 <script>
-    document.getElementById('listenButton').addEventListener('click', function() {
-        const audioTracks = document.querySelector('.audio-tracks');
-        if (audioTracks.style.display === 'none' || audioTracks.style.display === '') {
-            audioTracks.style.display = 'flex';
+    // JavaScript for ripple effect
+    document.querySelectorAll('.ripple-container').forEach(container => {
+        container.addEventListener('click', (e) => {
+            const ripple = container.querySelector('.ripple');
+            const rect = container.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            ripple.classList.add('ripple');
+        });
+    });
+
+    // JavaScript to toggle music block visibility
+    document.getElementById('toggle-music').addEventListener('click', () => {
+        const mobileBox = document.getElementById('mobile-box');
+        const button = document.getElementById('toggle-music');
+        
+        if (mobileBox.classList.contains('hidden')) {
+            mobileBox.classList.remove('hidden');
+            button.textContent = 'Noslēpt ierakstus!';
         } else {
-            audioTracks.style.display = 'none';
+            mobileBox.classList.add('hidden');
+            button.textContent = 'Parādīt jaunākos ierakstus!';
         }
     });
+
+    // JavaScript for audio controls
+    document.querySelectorAll('.card').forEach((card, index) => {
+        const playButton = card.querySelector(`#pButton${index + 1}`);
+        const audio = card.querySelector(`#music${index + 1}`);
+        const timeline = card.querySelector(`#timeline${index + 1}`);
+        const playhead = card.querySelector(`#playhead${index + 1}`);
+        
+        playButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playButton.classList.remove('fa-play');
+                playButton.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playButton.classList.remove('fa-pause');
+                playButton.classList.add('fa-play');
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            playhead.style.width = `${progress}%`;
+        });
+        
+        timeline.addEventListener('click', (e) => {
+            const rect = timeline.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const duration = audio.duration;
+            audio.currentTime = (offsetX / rect.width) * duration;
+        });
+    });
 </script>
+
+
 
 
 	

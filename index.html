@@ -244,61 +244,24 @@
 
 <main>
 
-  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-       <div class="carousel-item active">
-        <img src="event.jpg" class="d-block w-100" alt="Description of image">
-       <!--<svg class="bd-placeholder" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg> -->
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Dzīvā mūzika</h1>
-            <p class="opacity-75">Spēlēju akustisko ģitāru un dziedu. </p>
-           <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="1.png" class="d-block w-100" alt="Description of image">
-        <!--<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>-->
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Dzīvā mūzika privātās ballītēs</h1>
-            <p>Uzstāšos Jūsu pasākumā ar savu programmu, parūpēšos par muzikālo noformējumu.</p>
-           <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="bar.jpg" class="d-block w-100" alt="Description of image">
-        <!--<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>-->
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>Spēlēju bāros un vasaras dārzos</h1>
-            <p>Dzīvā mūzika bāros, kafejnīcās un vasaras dārzos.</p>
-           <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-    <title>Audio Section</title>
+     <title>Gunnar Glazer - Musician</title>
     <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Carousel Styles */
+        #myCarousel {
+            margin-bottom: 3rem;
+        }
+
+        /* Audio Section Styles */
         .audio-section {
-            margin-top: 20px;
-            padding: 20px;
+            margin: 3rem 0;
+            padding: 2rem;
             background-color: rgba(240, 240, 240, 0.8);
             border-radius: 10px;
         }
@@ -314,45 +277,167 @@
             max-width: calc(33.333% - 15px);
             box-sizing: border-box;
         }
+
+        /* Artist Bio Section Styles */
+        .bg-section {
+            background-image: url('section.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 4rem 1rem;
+            margin-top: 3rem;
+        }
+        .artist-bio {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+        .artist-bio p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .bg-section {
+                padding: 2rem 1rem;
+            }
+            .artist-bio {
+                padding: 1.5rem;
+            }
+            .artist-bio .col-md-8 {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Carousel Section -->
+    <main>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="event.jpg" class="d-block w-100" alt="Description of image">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Dzīvā mūzika</h1>
+                            <p class="opacity-75">Spēlēju akustisko ģitāru un dziedu. </p>
+                            <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="1.png" class="d-block w-100" alt="Description of image">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Dzīvā mūzika privātās ballītēs</h1>
+                            <p>Uzstāšos Jūsu pasākumā ar savu programmu, parūpēšos par muzikālo noformējumu.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="bar.jpg" class="d-block w-100" alt="Description of image">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>Spēlēju bāros un vasaras dārzos</h1>
+                            <p>Dzīvā mūzika bāros, kafejnīcās un vasaras dārzos.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#contacts">Sazinies!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
 
-<section class="audio-section">
-    <h3 class="mb-4">Jaunākie ieraksti</h3>
-    <button id="listenButton">Klausīties</button>
-    <div class="audio-tracks">
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+    <!-- Audio Section -->
+    <section class="audio-section">
+        <h3 class="mb-4">Jaunākie ieraksti</h3>
+        <button id="listenButton">Klausīties</button>
+        <div class="audio-tracks">
+            <div class="audio-track">
+                <audio controls style="width: 100%;">
+                    <source src="path/to/your/audio1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="audio-track">
+                <audio controls style="width: 100%;">
+                    <source src="path/to/your/audio2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="audio-track">
+                <audio controls style="width: 100%;">
+                    <source src="path/to/your/audio3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio2.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-        <div class="audio-track">
-            <audio controls style="width: 100%;">
-                <source src="path/to/your/audio3.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    document.getElementById('listenButton').addEventListener('click', function() {
-        const audioTracks = document.querySelector('.audio-tracks');
-        if (audioTracks.style.display === 'none' || audioTracks.style.display === '') {
-            audioTracks.style.display = 'flex';
-        } else {
-            audioTracks.style.display = 'none';
-        }
-    });
-</script>
+    <!-- Artist Bio Section -->
+    <section class="bg-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-4">
+                        <img src="1.jpeg" class="img-fluid rounded-circle mb-3" alt="Artist Photo" style="max-width: 250px; height: auto;">
+                        <h2>Gunnar Glazer</h2>
+                    </div>
+                    <div class="artist-bio">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- This column is intentionally left empty to create space on the left -->
+                            </div>
+                            <div class="col-md-8 text-left">
+                                <p class="lead">
+                                    Svinīga pasākuma atmosfēras radīšanai liela nozīme ir mūzikai. 
+                                    Spēlēju akustisko ģitāru un dziedu, piedāvājot dažādu muzikālo programmu un savu skanējumu. Repertuārā populāri skaņdarbi latviešu un angļu valodā.
+                                </p>
+                                <p>
+                                    Iemīļotas pašmāju dziesmas, kurām var dziedāt līdzi, populāri pasaules skaņdarbi un estrādes klasika.
+                                </p>
+                                <p>
+                                    Uzstājos kā solo mākslinieks ar kompaktu, bet pietiekoši jaudīgu skaņas tehniku.  
+                                    Savā manierē izpildītās dziesmas papildinu ar ritmu, piebalsi un ģitāras skaņām, 
+                                    izpildot skaņdarbus arī "looping" tehnikā.
+                                </p>
+                                <p>
+                                    Individuāla pieeja un profesionāla attieksme.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('listenButton').addEventListener('click', function() {
+            const audioTracks = document.querySelector('.audio-tracks');
+            if (audioTracks.style.display === 'none' || audioTracks.style.display === '') {
+                audioTracks.style.display = 'flex';
+            } else {
+                audioTracks.style.display = 'none';
+            }
+        });
+    </script>
 
 
 	

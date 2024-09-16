@@ -994,7 +994,169 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
         
     
         <iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fguntars-glazunovs-584047988&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
-        
+
+ <h2 class="mb-4">Kalendārs</h2>
+<title>Kalendārs</title>
+    <style>
+        .calendar {
+            font-family: Arial, sans-serif;
+            max-width: 300px;
+            margin: 20px auto;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        .calendar-cell {
+            text-align: center;
+            padding: 5px;
+            background-color: #fff;
+            border-radius: 3px;
+            position: relative;
+            cursor: default;
+        }
+        .unavailable {
+            background-color: #ffcccb;
+            color: #ff0000;
+            font-weight: bold;
+        }
+        .has-note {
+            border: 2px solid #4CAF50;
+        }
+        .day-header {
+            font-weight: bold;
+            background-color: #ddd;
+        }
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .calendar-cell:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevMonth">&lt;</button>
+            <h2 id="currentMonth"></h2>
+            <button id="nextMonth">&gt;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+
+    <script>
+        const calendarGrid = document.getElementById('calendarGrid');
+        const currentMonthElement = document.getElementById('currentMonth');
+        const prevMonthButton = document.getElementById('prevMonth');
+        const nextMonthButton = document.getElementById('nextMonth');
+
+        let currentDate = new Date();
+
+        // Example: Object with dates and their corresponding notes, false is not marked color
+        const dateNotes = {
+            '2024-09-21': { unavailable: true, note: 'Privāts pasākums' },
+            '2024-09-22': { unavailable: true, note: 'Privāts pasākums' },
+            '2024-10-03': { unavailable: true, note: 'Rezervēts, apsveikums' },
+            '2024-12-31': { unavailable: true, note: 'Rezervēts!' }
+        };
+
+        function renderCalendar() {
+            calendarGrid.innerHTML = '';
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            currentMonthElement.textContent = `${currentDate.toLocaleString('default', { month: 'long' })} ${year}`;
+
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+            // Add day headers
+            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            daysOfWeek.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.textContent = day;
+                dayHeader.classList.add('calendar-cell', 'day-header');
+                calendarGrid.appendChild(dayHeader);
+            });
+
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('calendar-cell');
+                calendarGrid.appendChild(emptyCell);
+            }
+
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement('div');
+                cell.textContent = day;
+                cell.classList.add('calendar-cell');
+
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dateInfo = dateNotes[dateString];
+
+                if (dateInfo) {
+                    if (dateInfo.unavailable) {
+                        cell.classList.add('unavailable');
+                    }
+                    if (dateInfo.note) {
+                        cell.classList.add('has-note');
+                        const tooltip = document.createElement('span');
+                        tooltip.classList.add('tooltip');
+                        tooltip.textContent = dateInfo.note;
+                        cell.appendChild(tooltip);
+                    }
+                }
+
+                calendarGrid.appendChild(cell);
+            }
+        }
+
+        function changeMonth(delta) {
+            currentDate.setMonth(currentDate.getMonth() + delta);
+            renderCalendar();
+        }
+
+        prevMonthButton.addEventListener('click', () => changeMonth(-1));
+        nextMonthButton.addEventListener('click', () => changeMonth(1));
+
+        renderCalendar();
+    </script>
+
+
+
+
+
+
+
+
+
+	      
         <section class="contact-section" style="margin-top: 30px;">
           <div class="contact-container">
             <h2>Kontakti</h2>

@@ -1380,148 +1380,66 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
 
 
 
+<title>Cookie Banner Example</title>
+    <style>
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        #accept-cookies {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing homepage content goes here -->
 
+    <div id="cookie-banner">
+        <p>This website uses cookies to ensure you get the best experience on our website. 
+        <a href="/privacy-policy">Learn more</a></p>
+        <button id="accept-cookies">Accept</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptButton = document.getElementById('accept-cookies');
+
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.style.display = 'block';
+            }
+
+            acceptButton.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.style.display = 'none';
+            });
+        });
+    </script>
 
 
 
 	
-      </div>
-    </div>
-  </div>
-</div>
 
-
-	    
-<!-- 
       
       
-      Repertoire Section 
- <div class="container">
-        <div class="dropdown mt-4">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: black; border-color: black;">
-                Apskatīt pēc žanra
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#rock">Pasaules Hīti</a></li>
-                <li><a class="dropdown-item" href="#pop">Latviešu populārie</a></li>
-                <li><a class="dropdown-item" href="#oldgood">Vecie un labie</a></li>
-                <li><a class="dropdown-item" href="#loveandsorrow">Mīlestība un sāpes</a></li>
-            </ul>
-        </div>
-        <div class="mt-4">
-            <div id="rock" class="genre-list">
-                <h3>Pasaules hīti</h3>
-                <ul class="list-unstyled">
-                    <li>"Wonderwall" - Oasis</li>
-                    <li>"With or without You" - U2</li>
-                    <li>"More Than Words" - Extreme</li>
-                    <li>"Sex on fire"</li>
-                    <li>"Alabama"</li>
-                    <li>"Wicked game"</li>
-                    <li>"One"</li>
-                    <li>"Yellow"</li>
-                    <li>"Save tonight"</li>
-                    <li>"Have You seen the rain?"</li>
-                    <li>"Iris"</li>
-                </ul>
-            </div>
-            <div id="pop" class="genre-list d-none">
-                <h3>Latviešu populārie</h3>
-                <ul class="list-unstyled">
-                    <li>"Dzeltenie aizkari"</li>
-                    <li>"Zīlīte"</li>
-                   <li>"Balta saule"</li>
-                    <li>"Virši zili"</li>
-                    <li>"Vēl ir laiks"</li>
-                    <li>"Popurijs"</li>
-                </ul>
-            </div>
-            <div id="oldgood" class="genre-list d-none">
-                <h3>Vecie un labie</h3>
-                <ul class="list-unstyled">
-                    <li>"Kaija"</li>
-                    <li>"Zemenes"</li>
-                    <li>"Bailes par ziņģi"</li>
-                    <li>"Balta saule"</li>
-                    <li>"Dzērvenīte"</li>
-                    <li>"Nāk nakts"</li>
-                    <li>"Par rozēm"</li>
-                    <li>"Griezīte"</li>
-                    <li>"Vēstules"</li>
-                </ul>
-            </div>
-            <div id="loveandsorrow" class="genre-list d-none">
-                <h3>Mīlestība un sāpes</h3>
-                <ul class="list-unstyled">
-                    <li>"Kurtizāņu ugunskurs"</li>
-                    <li>"Vēl viens dolārs"</li>
-                    <li>"Varanasi"</li>
-                    <li>"Kad tu mani pameti"</li>
-                    <li>"Tikai dzintars vien!"</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
-        const genreLists = document.querySelectorAll('.genre-list');
-        
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').slice(1);
-                
-                genreLists.forEach(list => {
-                    if (list.id === targetId) {
-                        list.classList.remove('d-none');
-                    } else {
-                        list.classList.add('d-none');
-                    }
-                }); 
-
-                // Update button text
-                document.getElementById('dropdownMenuButton').textContent = this.textContent;
-            });
-        });
-    });
-    </script>
- 
-      
-<section class="contact-section">
-        <div class="contact-container">
-            <h2>Kontakti</h2>
-            <div class="contact-info">
-                <p><strong>Tel:</strong> 29453061</p>
-                <p><strong>Email:</strong> glazunovs.guntars@gmail.com</p>
-            </div>
-        </div>
-    </section>
-
-<footer id="contacts" class="bg-dark text-light py-4 mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2 class="mb-4">Mani kontakti</h2>
-            <ul class="list-unstyled">
-              <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> 29453061</li>
-              <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> glazunovs.guntars@gmail.com</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h2 class="mb-4">Uz drīzu tikšanos!</h2>
-            <p>Plānojam pasākumus savlaicīgi!</p>
-          </div>
-        </div>
-        <hr class="my-4">
-        <div class="row">
-          <div class="col-12 text-center">
-            <p class="mb-0">&copy; 2024 GGmusic.lv. Visas tiesības aizsargātas.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>

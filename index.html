@@ -1418,30 +1418,29 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
 <body>
     <!-- Your existing homepage content goes here -->
 
-    <div id="cookie-banner">
-        <p>This website uses cookies to ensure you get the best experience on our website. 
-        <a href="/privacy-policy">Learn more</a></p>
-        <button id="accept-cookies">Accept</button>
-    </div>
+   <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #f1f1f1; padding: 20px; text-align: center; display: none; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+    <p style="margin: 0 0 15px 0; font-size: 16px;">
+        This website uses cookies to ensure you get the best experience on our website. 
+        <a href="/privacy-policy" style="color: #007bff; text-decoration: underline;">Learn more</a>
+    </p>
+    <button id="accept-cookies" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 5px;">Accept</button>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const acceptButton = document.getElementById('accept-cookies');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptButton = document.getElementById('accept-cookies');
 
-            if (!localStorage.getItem('cookiesAccepted')) {
-                cookieBanner.style.display = 'block';
-            }
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.style.display = 'block';
+        }
 
-            acceptButton.addEventListener('click', function() {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieBanner.style.display = 'none';
-            });
+        acceptButton.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.display = 'none';
         });
-    </script>
-
-
-
+    });
+</script>
 	
 
       

@@ -52,7 +52,37 @@
           font-size: 3.5rem;
         }
       }
-	    .audio-controls {
+	    /* Container for Horizontal Layout */
+#audio-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
+}
+
+/* Audio Card Styling */
+.audio-card {
+    flex: 0 0 300px; /* Fixed width for each card */
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Image Styling */
+.card-img-top {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Audio Controls Styling */
+.audio-controls {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,6 +114,24 @@
     background-color: #0d47a1;
     border-radius: 5px;
 }
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    #audio-container {
+        flex-wrap: wrap; /* Stack cards vertically on small screens */
+        gap: 15px;
+    }
+
+    .audio-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .card-img-top {
+        height: 100px;
+    }
+}
+
 
       
 .contact-section {
@@ -747,73 +795,70 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
     </style>
 </head>
 <body>
+<!-- Container for Audio Cards -->
+<div id="audio-container" class="d-flex justify-content-center my-4 mb-5">
 
-<!-- Card for Track 1 -->
-<div class="card">
-    <div class="bg-image hover-overlay ripple-container">
-        <img class="card-img-top" src="radio.jpg" alt="Track image">
-        <div class="ripple"></div>
-    </div>
-    <div class="card-body text-center">
-        <h5 class="h5 font-weight-bold"><a href="#">Atkal šovakar</a></h5>
-        <p class="mb-0">Grupas Live Baltvilla</p>
-        <audio id="audio1" preload="auto">
-            <source src="atkal.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="audio-controls">
-            <button id="playButton1" class="play-btn">Play</button>
-            <div id="progressBar1" class="progress-bar">
-                <div id="progress1" class="progress"></div>
+    <!-- Card for Track 1 -->
+    <div class="audio-card">
+        <div class="bg-image hover-overlay ripple-container">
+            <img class="card-img-top" src="radio.jpg" alt="Track image">
+        </div>
+        <div class="card-body text-center">
+            <h5><a href="#">Atkal šovakar</a></h5>
+            <p>Grupas Live Baltvilla</p>
+            <audio id="audio1" preload="auto">
+                <source src="atkal.mp3" type="audio/mpeg">
+            </audio>
+            <div class="audio-controls">
+                <button id="playButton1" class="play-btn">Play</button>
+                <div id="progressBar1" class="progress-bar">
+                    <div id="progress1" class="progress"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Card for Track 2 -->
-<div class="card">
-    <div class="bg-image hover-overlay ripple-container">
-        <img class="card-img-top" src="radio.jpg" alt="Track image">
-        <div class="ripple"></div>
-    </div>
-    <div class="card-body text-center">
-        <h5 class="h5 font-weight-bold"><a href="#">Lapas dzeltenās</a></h5>
-        <p class="mb-0">Grupa Baltvillā</p>
-        <audio id="audio2" preload="auto">
-            <source src="lapas.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="audio-controls">
-            <button id="playButton2" class="play-btn">Play</button>
-            <div id="progressBar2" class="progress-bar">
-                <div id="progress2" class="progress"></div>
+    <!-- Card for Track 2 -->
+    <div class="audio-card">
+        <div class="bg-image hover-overlay ripple-container">
+            <img class="card-img-top" src="radio.jpg" alt="Track image">
+        </div>
+        <div class="card-body text-center">
+            <h5><a href="#">Lapas dzeltenās</a></h5>
+            <p>Grupa Baltvillā</p>
+            <audio id="audio2" preload="auto">
+                <source src="lapas.mp3" type="audio/mpeg">
+            </audio>
+            <div class="audio-controls">
+                <button id="playButton2" class="play-btn">Play</button>
+                <div id="progressBar2" class="progress-bar">
+                    <div id="progress2" class="progress"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Card for Track 3 -->
-<div class="card">
-    <div class="bg-image hover-overlay ripple-container">
-        <img class="card-img-top" src="radio.jpg" alt="Track image">
-        <div class="ripple"></div>
-    </div>
-    <div class="card-body text-center">
-        <h5 class="h5 font-weight-bold"><a href="#">Popūrijs</a></h5>
-        <p class="mb-0">Bijām.. nedaudz no Valmieras</p>
-        <audio id="audio3" preload="auto">
-            <source src="valmiera.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <div class="audio-controls">
-            <button id="playButton3" class="play-btn">Play</button>
-            <div id="progressBar3" class="progress-bar">
-                <div id="progress3" class="progress"></div>
+    <!-- Card for Track 3 -->
+    <div class="audio-card">
+        <div class="bg-image hover-overlay ripple-container">
+            <img class="card-img-top" src="radio.jpg" alt="Track image">
+        </div>
+        <div class="card-body text-center">
+            <h5><a href="#">Popūrijs</a></h5>
+            <p>Bijām.. nedaudz no Valmieras</p>
+            <audio id="audio3" preload="auto">
+                <source src="valmiera.mp3" type="audio/mpeg">
+            </audio>
+            <div class="audio-controls">
+                <button id="playButton3" class="play-btn">Play</button>
+                <div id="progressBar3" class="progress-bar">
+                    <div id="progress3" class="progress"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>
 
 
 	

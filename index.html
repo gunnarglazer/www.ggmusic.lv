@@ -748,7 +748,6 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
 </head>
 <body>
 
-	
 <!-- Card for Track 1 -->
 <div class="card">
     <div class="bg-image hover-overlay ripple-container">
@@ -770,41 +769,111 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
         </div>
     </div>
 </div>
+
+<!-- Card for Track 2 -->
+<div class="card">
+    <div class="bg-image hover-overlay ripple-container">
+        <img class="card-img-top" src="radio.jpg" alt="Track image">
+        <div class="ripple"></div>
+    </div>
+    <div class="card-body text-center">
+        <h5 class="h5 font-weight-bold"><a href="#">Lapas dzeltenās</a></h5>
+        <p class="mb-0">Grupa Baltvillā</p>
+        <audio id="audio2" preload="auto">
+            <source src="lapas.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+            <button id="playButton2" class="play-btn">Play</button>
+            <div id="progressBar2" class="progress-bar">
+                <div id="progress2" class="progress"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Card for Track 3 -->
+<div class="card">
+    <div class="bg-image hover-overlay ripple-container">
+        <img class="card-img-top" src="radio.jpg" alt="Track image">
+        <div class="ripple"></div>
+    </div>
+    <div class="card-body text-center">
+        <h5 class="h5 font-weight-bold"><a href="#">Popūrijs</a></h5>
+        <p class="mb-0">Bijām.. nedaudz no Valmieras</p>
+        <audio id="audio3" preload="auto">
+            <source src="valmiera.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+            <button id="playButton3" class="play-btn">Play</button>
+            <div id="progressBar3" class="progress-bar">
+                <div id="progress3" class="progress"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-    const audio = document.getElementById("audio1");
-    const playButton = document.getElementById("playButton1");
-    const progressBar = document.getElementById("progressBar1");
-    const progress = document.getElementById("progress1");
+    const tracks = [
+        { audioId: "audio1", buttonId: "playButton1", progressBarId: "progressBar1", progressId: "progress1" },
+        { audioId: "audio2", buttonId: "playButton2", progressBarId: "progressBar2", progressId: "progress2" },
+        { audioId: "audio3", buttonId: "playButton3", progressBarId: "progressBar3", progressId: "progress3" }
+    ];
 
-    // Play/Pause Toggle
-    playButton.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play();
-            playButton.textContent = "Pause";
-        } else {
-            audio.pause();
+    tracks.forEach(({ audioId, buttonId, progressBarId, progressId }) => {
+        const audio = document.getElementById(audioId);
+        const playButton = document.getElementById(buttonId);
+        const progressBar = document.getElementById(progressBarId);
+        const progress = document.getElementById(progressId);
+
+        // Ensure audio is loaded
+        audio.load();
+
+        // Play/Pause Toggle
+        playButton.addEventListener("click", () => {
+            // Pause any other playing audio
+            document.querySelectorAll('audio').forEach((a) => {
+                if (a !== audio) {
+                    a.pause();
+                    const otherButton = document.querySelector(`#playButton${a.id.replace('audio', '')}`);
+                    if (otherButton) {
+                        otherButton.textContent = "Play";
+                    }
+                }
+            });
+
+            if (audio.paused) {
+                audio.play();
+                playButton.textContent = "Pause";
+            } else {
+                audio.pause();
+                playButton.textContent = "Play";
+            }
+        });
+
+        // Update Progress Bar
+        audio.addEventListener("timeupdate", () => {
+            const percentage = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = `${percentage}%`;
+        });
+
+        // Seek Audio on Click
+        progressBar.addEventListener("click", (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const clickPosition = e.clientX - rect.left;
+            const clickPercentage = clickPosition / rect.width;
+            audio.currentTime = clickPercentage * audio.duration;
+        });
+
+        // Reset Button Text on Audio End
+        audio.addEventListener("ended", () => {
             playButton.textContent = "Play";
-        }
-    });
-
-    // Update Progress Bar
-    audio.addEventListener("timeupdate", () => {
-        const percentage = (audio.currentTime / audio.duration) * 100;
-        progress.style.width = `${percentage}%`;
-    });
-
-    // Seek Audio on Click
-    progressBar.addEventListener("click", (e) => {
-        const rect = progressBar.getBoundingClientRect();
-        const clickPosition = e.clientX - rect.left;
-        const clickPercentage = clickPosition / rect.width;
-        audio.currentTime = clickPercentage * audio.duration;
-    });
-
-    // Reset Button Text on Audio End
-    audio.addEventListener("ended", () => {
-        playButton.textContent = "Play";
+        });
     });
 });
 

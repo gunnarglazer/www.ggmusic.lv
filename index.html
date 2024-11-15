@@ -52,6 +52,39 @@
           font-size: 3.5rem;
         }
       }
+	    .audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.play-btn {
+    background-color: #3979ea;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #0d47a1;
+    border-radius: 5px;
+}
+
       
 .contact-section {
             background-color: #f0f0f0;
@@ -715,77 +748,65 @@ Repertuāru vienmēr varam apspriest, bet visbiežāk aicinu ieklausīties gaiš
 </head>
 <body>
 
+	
+<!-- Card for Track 1 -->
+<div class="card">
+    <div class="bg-image hover-overlay ripple-container">
+        <img class="card-img-top" src="radio.jpg" alt="Track image">
+        <div class="ripple"></div>
+    </div>
+    <div class="card-body text-center">
+        <h5 class="h5 font-weight-bold"><a href="#">Atkal šovakar</a></h5>
+        <p class="mb-0">Grupas Live Baltvilla</p>
+        <audio id="audio1" preload="auto">
+            <source src="atkal.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+            <button id="playButton1" class="play-btn">Play</button>
+            <div id="progressBar1" class="progress-bar">
+                <div id="progress1" class="progress"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Audio Elements -->
-<audio id="music1" preload="auto">
-    <source src="atkal.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<audio id="music2" preload="auto">
-    <source src="lapas.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<audio id="music3" preload="auto">
-    <source src="valmiera.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-document.querySelectorAll('.card').forEach((card, index) => {
-    const playButton = card.querySelector(`#pButton${index + 1}`);
-    const audio = card.querySelector(`#music${index + 1}`);
-    const timeline = card.querySelector(`#timeline${index + 1}`);
-    const playhead = card.querySelector(`#playhead${index + 1}`);
-
-    // Ensure audio is loaded
-    audio.load();
+	document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("audio1");
+    const playButton = document.getElementById("playButton1");
+    const progressBar = document.getElementById("progressBar1");
+    const progress = document.getElementById("progress1");
 
     // Play/Pause Toggle
-    playButton.addEventListener('click', () => {
-        // Pause any other playing audio
-        document.querySelectorAll('audio').forEach((a) => {
-            if (a !== audio) {
-                a.pause();
-                const otherButton = document.querySelector(`#pButton${a.id.replace('music', '')}`);
-                otherButton.classList.remove('fa-pause');
-                otherButton.classList.add('fa-play');
-            }
-        });
-
+    playButton.addEventListener("click", () => {
         if (audio.paused) {
             audio.play();
-            playButton.classList.remove('fa-play');
-            playButton.classList.add('fa-pause');
+            playButton.textContent = "Pause";
         } else {
             audio.pause();
-            playButton.classList.remove('fa-pause');
-            playButton.classList.add('fa-play');
+            playButton.textContent = "Play";
         }
     });
 
-    // Update Playhead on Time Update
-    audio.addEventListener('timeupdate', () => {
-        const progress = (audio.currentTime / audio.duration) * 100;
-        playhead.style.width = `${progress}%`;
+    // Update Progress Bar
+    audio.addEventListener("timeupdate", () => {
+        const percentage = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = `${percentage}%`;
     });
 
-    // Seek on Timeline Click
-    timeline.addEventListener('click', (e) => {
-        const rect = timeline.getBoundingClientRect();
+    // Seek Audio on Click
+    progressBar.addEventListener("click", (e) => {
+        const rect = progressBar.getBoundingClientRect();
         const clickPosition = e.clientX - rect.left;
-        const newTime = (clickPosition / rect.width) * audio.duration;
-        audio.currentTime = newTime;
+        const clickPercentage = clickPosition / rect.width;
+        audio.currentTime = clickPercentage * audio.duration;
     });
 
-    // Reset Play Button on Audio End
-    audio.addEventListener('ended', () => {
-        playButton.classList.remove('fa-pause');
-        playButton.classList.add('fa-play');
+    // Reset Button Text on Audio End
+    audio.addEventListener("ended", () => {
+        playButton.textContent = "Play";
     });
 });
-
-
 
 
 	
